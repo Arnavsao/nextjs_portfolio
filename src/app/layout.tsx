@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/NavBar";
 import { BackgroundBoxesDemo } from "@/components/BackgroundBoxesDemo";
 import Head from "next/head"; // Import Head for adding metadata
+import { AnimatedTooltipPreview } from "@/components/AnimatedTooltipPreview";
+
 
 const inter = Inter({ subsets: ["latin"] }); // Initialize the Inter font
 
@@ -29,6 +31,7 @@ export default function RootLayout({
           <Navbar />
         </div>
         {children}
+        <AnimatedTooltipPreview />
         <BackgroundBoxesDemo />
       </body>
     </html>

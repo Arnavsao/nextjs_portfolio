@@ -2,7 +2,7 @@
 
 function page() {
   return (
-    <div>Sponsor</div>
+    <div>ML</div>
   )
 }
 

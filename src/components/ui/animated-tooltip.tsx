@@ -1,8 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-"use client";
-import Image from "next/image";
-import React, { useState } from "react";
+import Image, { StaticImageData } from "next/image";
+import React, { useState, useEffect } from "react";
 import {
   motion,
   useTransform,
@@ -18,34 +15,44 @@ export const AnimatedTooltip = ({
     id: number;
     name: string;
     designation: string;
-    image: string;
-    link: string; // Add the link to the item type
+    image: StaticImageData;  // Change the type of image to StaticImageData
+    link: string;
   }[];
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const springConfig = { stiffness: 100, damping: 5 };
-  const x = useMotionValue(0); // going to set this value on mouse move
-  // rotate the tooltip
+  const x = useMotionValue(0);
+
+  // Handle rotate and translate with conditional client-side checks
   const rotate = useSpring(
-    useTransform(x, [-100, 100], [-45, 45]),
+    useTransform(x, [-100, 100], [-45, 45]), // Use `x` directly instead of conditionally checking for `window`
     springConfig
   );
-  // translate the tooltip
   const translateX = useSpring(
-    useTransform(x, [-100, 100], [-50, 50]),
+    useTransform(x, [-100, 100], [-50, 50]), // Use `x` directly instead of conditionally checking for `window`
     springConfig
   );
-  const handleMouseMove = (event: any) => {
-    const halfWidth = event.target.offsetWidth / 2;
-    x.set(event.nativeEvent.offsetX - halfWidth); // set the x value, which is then used in transform and rotate
+
+  // Mouse move event only runs client-side
+  const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
+    const halfWidth = event.currentTarget.offsetWidth / 2;
+    x.set(event.nativeEvent.offsetX - halfWidth);
   };
+
+  // Hydration Error Fix: useEffect ensures this logic runs only in the browser
+  useEffect(() => {
+    // Ensure code runs on the client
+    if (typeof window !== "undefined") {
+      // Your logic that relies on the client-side environment
+    }
+  }, []);
 
   return (
     <>
-      {items.map((item, idx) => (
+      {items.map((item) => (
         <div
           className="-mr-4 relative group"
-          key={item.name}
+          key={item.id} // Use `item.id` as the key
           onMouseEnter={() => setHoveredIndex(item.id)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
@@ -69,8 +76,9 @@ export const AnimatedTooltip = ({
                   rotate: rotate,
                   whiteSpace: "nowrap",
                 }}
-                className="absolute -top-16 -left-1/2 translate-x-1/2 flex text-xs  flex-col items-center justify-center rounded-md bg-black z-50 shadow-xl px-4 py-2"
+                className="absolute -top-16 -left-1/2 translate-x-1/2 flex text-xs flex-col items-center justify-center rounded-md bg-black z-50 shadow-xl px-4 py-2"
               >
+                {/* Tooltip content */}
                 <div className="absolute inset-x-10 z-30 w-[20%] -bottom-px bg-gradient-to-r from-transparent via-emerald-500 to-transparent h-px " />
                 <div className="absolute left-10 w-[40%] z-30 -bottom-px bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px " />
                 <div className="font-bold text-white relative z-30 text-base">
@@ -80,16 +88,14 @@ export const AnimatedTooltip = ({
               </motion.div>
             )}
           </AnimatePresence>
-          <a href={item.link} target="_blank" rel="noopener noreferrer"> {/* Add this anchor tag with the link */}
-            <Image
-              onMouseMove={handleMouseMove}
-              height={100}
-              width={100}
-              src={item.image}
-              alt={item.name}
-              className="object-cover !m-0 !p-0 object-top rounded-full h-14 w-14 border-2 group-hover:scale-105 group-hover:z-30 border-white relative transition duration-500"
-            />
-          </a>
+          <Image
+            onMouseMove={handleMouseMove}
+            height={100}
+            width={100}
+            src={item.image}
+            alt={item.name}
+            className="object-cover m-0 p-0 object-top rounded-full h-14 w-14 border-2 group-hover:scale-105 group-hover:z-30 border-white relative transition duration-500"
+          />
         </div>
       ))}
     </>

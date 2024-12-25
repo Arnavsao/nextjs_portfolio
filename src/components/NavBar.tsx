@@ -10,46 +10,42 @@ function Navbar({ className }: { className?: string }) {
   return (
     <div className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}>
       <Menu setActive={setActive}>
+        
         {/* Home */}
-        <Link href={"/"}>
+        <Link className="text-colo" href={"/"}>
           <MenuItem setActive={setActive} active={active} item="Home" />
         </Link>
 
+        {/* About */}
+        <Link href={"/about"}>
+          <MenuItem setActive={setActive} active={active} item="About" />
+        </Link>
+        
+        {/* Experience */}
+        <Link href={"/experience"}>
+          <MenuItem setActive={setActive} active={active} item="Experience" />
+        </Link>
+
         {/* Menu */}
-        <MenuItem setActive={setActive} active={active} item="Menu">
+        <MenuItem setActive={setActive} active={active} item="Projects">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/menu/veg">Veg</HoveredLink>
-            <HoveredLink href="/menu/non-veg">Non-Veg</HoveredLink>
+            <HoveredLink href="/projects/webdev">Web Development</HoveredLink>
+            <HoveredLink href="/projects/ml">Machine Learning</HoveredLink>
           </div>
         </MenuItem>
 
         {/* Services */}
-        <MenuItem setActive={setActive} active={active} item="Services">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/services/sponsor">Sponsor</HoveredLink>
-            <HoveredLink href="/services/food">Food</HoveredLink>
-            <HoveredLink href="/services/water">Water</HoveredLink>
-          </div>
-        </MenuItem>
+        <Link href={"/services"}>
+          <MenuItem setActive={setActive} active={active} item="Services" />
+        </Link>
 
         {/* Contact Us */}
         <Link href={"/contact"}>
-          <MenuItem setActive={setActive} active={active} item="Contact Us" />
+          <MenuItem setActive={setActive} active={active} item="Contact" />
         </Link>
 
-        {/* Team */}
-        <MenuItem setActive={setActive} active={active} item="Team">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/team/iit-1">IIT 1</HoveredLink>
-            <HoveredLink href="/team/iit-2">IIT 2</HoveredLink>
-            <HoveredLink href="/team/interns">Interns</HoveredLink>
-          </div>
-        </MenuItem>
-
-        {/* SignUp */}
-        <Link className="text-colo" href={"/login"}>
-          <MenuItem setActive={setActive} active={active} item="Login" />
-        </Link>
+       
+        
       </Menu>
     </div>
   );

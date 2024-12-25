@@ -2,17 +2,20 @@
 // import Herosection from "@/components/Herosection";
 import FeaturedCourses from "@/components/FeaturedCourses";
 // import { CardStackDemo } from "@/components/CardStackDemo"; // Import CardStackDemo
-import { CardHoverEffectDemoLanguages } from "@/components/CardHoverEffectDemoLanguages";
-import { CardHoverEffectDemoTools } from "@/components/CardHoverEffectDemoTools";
-import { CardHoverEffectDemoDevelopment } from "@/components/CardHoverEffectDemoDevelopment";
-import { CardHoverEffectDemoLibraries } from "@/components/CardHoverEffectDemoLibraries";
-import { CardHoverEffectDemoFrameworks } from "@/components/CardHoverEffectDemoFrameworks";
+// import { CardHoverEffectDemoLanguages } from "@/components/CardHoverEffectDemoLanguages";
+// import { CardHoverEffectDemoTools } from "@/components/CardHoverEffectDemoTools";
+// import { CardHoverEffectDemoDevelopment } from "@/components/CardHoverEffectDemoDevelopment";
+// import { CardHoverEffectDemoLibraries } from "@/components/CardHoverEffectDemoLibraries";
+// import { CardHoverEffectDemoFrameworks } from "@/components/CardHoverEffectDemoFrameworks";
 
 import { AppleCardsCarouselDemo } from "@/components/AppleCardsCarouselDemo";
-import { AnimatedTooltipPreview } from "@/components/AnimatedTooltipPreview";
+// import { AnimatedTooltipPreview } from "@/components/AnimatedTooltipPreview";
 import { HeroParallaxDemo } from "@/components/HeroParallaxDemo";
 // import { FlipWordsDemo } from "@/components/FlipWordsDemo";
 import { InfiniteMovingCardsDemo } from "@/components/InfiniteMovingCardsDemo";
+import { HeroScrollDemo } from "@/components/HeroScrollDemo";
+
+
 
 // import { BackgroundBeamsDemoContact } from "@/components/BackgroundBeamsDemoContact"
 
@@ -23,21 +26,25 @@ export default function Home() {
 
       <HeroParallaxDemo/>
       {/* <Herosection /> */}
+      
       <FeaturedCourses />
 
+      <HeroScrollDemo/>
+
       {/* Call each CardHoverEffectDemo component separately */}
-      <CardHoverEffectDemoLanguages />
+      {/* <CardHoverEffectDemoLanguages />
       <CardHoverEffectDemoTools />
       <CardHoverEffectDemoDevelopment />
       <CardHoverEffectDemoLibraries />
-      <CardHoverEffectDemoFrameworks />
+      <CardHoverEffectDemoFrameworks /> */}
 
+      
       <AppleCardsCarouselDemo/>
       {/* Adding the CardStackDemo Component */}
       {/* <CardStackDemo /> */}
       {/* <BackgroundBeamsDemoContact/> */}
       <InfiniteMovingCardsDemo/>
-      <AnimatedTooltipPreview/>  
+      {/* <AnimatedTooltipPreview/>   */}
     </main>
   );
 }

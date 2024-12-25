@@ -2,8 +2,8 @@ import { HoverEffect } from "./ui/card-hover-effect";
 
 export function CardHoverEffectDemoLibraries() {
   return (
-    <div className="max-w-7xl mx-auto px-8 flex">
-    <h1 className=" pt-10 pr-28 text-3xl text-teal-500">Libraries</h1>
+    <div className="max-w-7xl mx-auto px-8 flex ">
+    {/* <h1 className="font-extrabold italic pt-10 pr-28 text-3xl text-indigo-500">Libraries</h1> */}
       <HoverEffect items={projects} />
     </div>
   );

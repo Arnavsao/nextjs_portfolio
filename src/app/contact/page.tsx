@@ -4,8 +4,10 @@ import { BackgroundBeamsDemoContact } from "@/components/BackgroundBeamsDemoCont
 
 function page() {
   return (
-    <BackgroundBeamsDemoContact/>
+    <div>
+      <BackgroundBeamsDemoContact />
+    </div>
   )
 }
 
-export default page
+export default page;

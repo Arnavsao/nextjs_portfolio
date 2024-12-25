@@ -2,7 +2,7 @@
 
 function page() {
   return (
-    <div>IIT 2</div>
+    <div>Web Dev</div>
   )
 }
 

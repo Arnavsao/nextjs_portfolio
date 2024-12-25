@@ -2,6 +2,7 @@
 import Link from 'next/link'; // Import Link for routing
 import courseData from '../data/music_courses.json'; // Assuming courseData is used elsewhere
 import FeaturedSection_bg from '@/assets/FeaturedSection.png'; // Import the image
+// import { BackgroundBeams } from './ui/background-beams';
 
 function FeaturedCourses() {
   // Filter for featured courses
@@ -15,6 +16,7 @@ function FeaturedCourses() {
         backgroundColor: '#1a202c', // Fallback background color
       }}
     >
+      {/* <BackgroundBeams/> */}
       {/* Background image with opacity */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -26,7 +28,7 @@ function FeaturedCourses() {
       
       {/* Section Title */}
       <div className="relative z-10 text-center p-10 z-10">
-      <h2 className="text-base text-teal-600 text-xl font-semibold tracking-wide uppercase">
+      <h2 className="text-base text-indigo-500 text-xl font-semibold tracking-wide uppercase">
       FEATURED SKILLS
       </h2>
       <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">

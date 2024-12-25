@@ -1,8 +1,9 @@
 'use client'
 
+
 function page() {
   return (
-    <div>Water</div>
+    <div>about</div>
   )
 }
 
