@@ -1,6 +1,8 @@
 import React from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
-import Image, { StaticImageData } from "next/image";  // Import StaticImageData for types
+
+// Removed unused imports
+// import Image, { StaticImageData } from "next/image";  
 
 import btp from "@/assets/btp.png";
 import chatbot from "@/assets/chatbot.png";

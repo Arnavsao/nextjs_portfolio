@@ -25,6 +25,25 @@ export const InfiniteMovingCards = ({
 
   const [start, setStart] = useState(false);
 
+  // Wrap getDirection in useCallback to ensure it has a stable reference
+  const getDirection = useCallback(() => {
+    if (containerRef.current) {
+      containerRef.current.style.setProperty(
+        "--animation-direction",
+        direction === "left" ? "forwards" : "reverse"
+      );
+    }
+  }, [direction]);
+
+  // Wrap getSpeed in useCallback to ensure it has a stable reference
+  const getSpeed = useCallback(() => {
+    if (containerRef.current) {
+      const duration =
+        speed === "fast" ? "20s" : speed === "normal" ? "40s" : "80s";
+      containerRef.current.style.setProperty("--animation-duration", duration);
+    }
+  }, [speed]);
+
   // Wrap addAnimation in useCallback to stabilize its reference
   const addAnimation = useCallback(() => {
     if (containerRef.current && scrollerRef.current) {
@@ -37,32 +56,15 @@ export const InfiniteMovingCards = ({
         }
       });
 
-      getDirection();
-      getSpeed();
+      getDirection();  // Call getDirection to update animation direction
+      getSpeed();      // Call getSpeed to update animation speed
       setStart(true);
     }
-  }, [direction, speed]);
-
-  const getDirection = useCallback(() => {
-    if (containerRef.current) {
-      containerRef.current.style.setProperty(
-        "--animation-direction",
-        direction === "left" ? "forwards" : "reverse"
-      );
-    }
-  }, [direction]);
-
-  const getSpeed = useCallback(() => {
-    if (containerRef.current) {
-      const duration =
-        speed === "fast" ? "20s" : speed === "normal" ? "40s" : "80s";
-      containerRef.current.style.setProperty("--animation-duration", duration);
-    }
-  }, [speed]);
+  }, [getDirection, getSpeed]); // Add getDirection and getSpeed to the dependencies
 
   useEffect(() => {
     addAnimation();
-  }, [addAnimation]);
+  }, [addAnimation]); // Trigger addAnimation on component mount or when direction/speed change
 
   return (
     <div
