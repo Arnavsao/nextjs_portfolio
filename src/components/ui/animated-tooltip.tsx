@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from "next/image";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   motion,
   useTransform,
@@ -38,14 +38,6 @@ export const AnimatedTooltip = ({
     const halfWidth = event.currentTarget.offsetWidth / 2;
     x.set(event.nativeEvent.offsetX - halfWidth);
   };
-
-  // Hydration Error Fix: useEffect ensures this logic runs only in the browser
-  useEffect(() => {
-    // Ensure code runs on the client
-    if (typeof window !== "undefined") {
-      // Your logic that relies on the client-side environment
-    }
-  }, []);
 
   return (
     <>
@@ -88,14 +80,16 @@ export const AnimatedTooltip = ({
               </motion.div>
             )}
           </AnimatePresence>
-          <Image
-            onMouseMove={handleMouseMove}
-            height={100}
-            width={100}
-            src={item.image}
-            alt={item.name}
-            className="object-cover m-0 p-0 object-top rounded-full h-14 w-14 border-2 group-hover:scale-105 group-hover:z-30 border-white relative transition duration-500"
-          />
+          <a href={item.link} target="_blank" rel="noopener noreferrer">
+            <Image
+              onMouseMove={handleMouseMove}
+              height={100}
+              width={100}
+              src={item.image}
+              alt={item.name}
+              className="object-cover m-0 p-0 object-top rounded-full h-14 w-14 border-2 group-hover:scale-105 group-hover:z-30 border-white relative transition duration-500"
+            />
+          </a>
         </div>
       ))}
     </>
