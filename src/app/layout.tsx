@@ -29,6 +29,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="relative w-full flex items-center justify-center">
           <Navbar />
+          <div className="bg-yellow-400 w-full font-weight: 200 italic flex items-center text-black text-xl justify-center ">
+          <p>🚧 Website is under construction. Still needs some updates! 🚧</p>
+          </div>        
         </div>
         {children}
         <AnimatedTooltipPreview />
