@@ -1,3 +1,8 @@
+<a href="https://arnavsao-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">
+  <img src="https://github.com/user-attachments/assets/29b2af59-43ba-43a1-8185-7b9259f9799d" alt="Portfolio Screenshot" style="max-width: 100%; height: auto;">
+</a>
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
