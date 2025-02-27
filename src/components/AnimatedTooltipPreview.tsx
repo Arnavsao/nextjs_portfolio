@@ -51,8 +51,10 @@ const people = [
 
 export function AnimatedTooltipPreview() {
   return (
-    <div className="flex flex-row items-center justify-center pb-10 w-full">
-      <AnimatedTooltip items={people} />
-    </div>
+    <div
+  className="flex flex-row items-center justify-center w-full bg-transparent"
+>
+  <AnimatedTooltip items={people} />
+</div>
   );
 }
