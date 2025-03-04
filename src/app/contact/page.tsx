@@ -2,10 +2,12 @@
 
 import { BackgroundBeamsDemoContact } from "@/components/BackgroundBeamsDemoContact"
 
+
 function page() {
   return (
     <div>
       <BackgroundBeamsDemoContact />
+
     </div>
   )
 }

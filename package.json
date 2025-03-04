@@ -9,18 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-three/fiber": "^8.17.10",
+    "@react-three/drei": "^10.0.3",
+    "@react-three/fiber": "^9.0.4",
     "@tabler/icons-react": "^3.26.0",
     "@types/three": "^0.171.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.15.0",
     "mini-svg-data-uri": "^1.4.4",
+    "motion": "^12.4.10",
     "next": "15.0.4",
     "next-images": "^1.8.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^2.6.0",
-    "three": "^0.171.0"
+    "three": "^0.174.0",
+    "three-globe": "^2.42.1"
   },
   "devDependencies": {
     "@types/node": "^20",
